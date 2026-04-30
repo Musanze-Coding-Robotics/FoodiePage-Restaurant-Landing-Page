@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Basics - Smart Learning Hub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <h1>Smart Learning Hub</h1>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="#" id="login-btn">Login</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <h2>JavaScript Basics</h2>
+
+        <section class="course-section">
+            <h3>Section 1: What is JavaScript?</h3>
+            <p>JavaScript is a programming language that allows you to implement complex features on web pages.</p>
+            <p>Example: console.log('Hello World');</p>
+        </section>
+
+        <section class="course-section">
+            <h3>Section 2: Variables and Functions</h3>
+            <p>Use var, let, or const to declare variables. Functions are blocks of code designed to perform a task.</p>
+        </section>
+
+        <div class="quiz">
+            <h4>Quiz: JavaScript Basics</h4>
+            <p>What is JavaScript primarily used for?</p>
+            <ul>
+                <li><input type="radio" name="quiz3" value="a"> Adding interactivity to web pages</li>
+                <li><input type="radio" name="quiz3" value="b"> Styling web pages</li>
+                <li><input type="radio" name="quiz3" value="c"> Structuring web content</li>
+            </ul>
+            <button onclick="checkQuiz('quiz3', 'a')">Submit</button>
+            <p id="result-quiz3"></p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Smart Learning Hub. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

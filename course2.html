@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Fundamentals - Smart Learning Hub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <h1>Smart Learning Hub</h1>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="#" id="login-btn">Login</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <h2>CSS Fundamentals</h2>
+
+        <section class="course-section">
+            <h3>Section 1: What is CSS?</h3>
+            <p>CSS stands for Cascading Style Sheets. It is used to describe the presentation of a document written in HTML.</p>
+            <p>Example: body { background-color: lightblue; }</p>
+        </section>
+
+        <section class="course-section">
+            <h3>Section 2: Selectors and Properties</h3>
+            <p>Use selectors like .class or #id to target elements. Properties like color, font-size control appearance.</p>
+        </section>
+
+        <div class="quiz">
+            <h4>Quiz: CSS Basics</h4>
+            <p>What does CSS stand for?</p>
+            <ul>
+                <li><input type="radio" name="quiz2" value="a"> Cascading Style Sheets</li>
+                <li><input type="radio" name="quiz2" value="b"> Computer Style System</li>
+                <li><input type="radio" name="quiz2" value="c"> Creative Style Script</li>
+            </ul>
+            <button onclick="checkQuiz('quiz2', 'a')">Submit</button>
+            <p id="result-quiz2"></p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Smart Learning Hub. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

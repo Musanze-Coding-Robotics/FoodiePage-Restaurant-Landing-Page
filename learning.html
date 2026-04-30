@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Learning Hub</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #222;
+            background: #f3f7fb;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1f3c88, #4057a4);
+            color: #fff;
+            padding: 18px 0;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        nav h1 {
+            font-size: 1.4rem;
+            letter-spacing: 0.04em;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        nav ul li a,
+        nav ul li button {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 14px;
+            border-radius: 8px;
+            transition: background 0.3s, transform 0.2s;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        nav ul li a:hover,
+        nav ul li button:hover,
+        nav ul li a.active {
+            background: rgba(255, 255, 255, 0.16);
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px 40px;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 30px;
+            align-items: center;
+            background: #fff;
+            padding: 40px;
+            border-radius: 28px;
+            box-shadow: 0 20px 50px rgba(56, 84, 140, 0.12);
+        }
+
+        .hero-content h2 {
+            font-size: clamp(2rem, 2.8vw, 3.2rem);
+            margin-bottom: 18px;
+            line-height: 1.05;
+            color: #16355c;
+        }
+
+        .hero-content p {
+            font-size: 1.05rem;
+            margin-bottom: 24px;
+            color: #4d5f7f;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .hero img {
+            width: 100%;
+            border-radius: 24px;
+            object-fit: cover;
+            min-height: 280px;
+            box-shadow: 0 15px 40px rgba(34, 60, 100, 0.12);
+        }
+
+        .btn,
+        .btn.secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 999px;
+            padding: 12px 24px;
+            font-weight: 600;
+            transition: transform 0.2s, background 0.3s, color 0.3s;
+        }
+
+        .btn {
+            background: #1f3c88;
+            color: #fff;
+            border: 1px solid transparent;
+        }
+
+        .btn:hover,
+        .btn.secondary:hover {
+            transform: translateY(-1px);
+        }
+
+        .btn.secondary {
+            background: #f5f8ff;
+            color: #1f3c88;
+            border: 1px solid #d2d9ed;
+        }
+
+        .section-intro,
+        .course-list,
+        .info-grid,
+        .enroll-grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        .section-intro {
+            grid-template-columns: 1.2fr 0.8fr;
+            margin: 50px 0;
+            align-items: center;
+        }
+
+        .section-intro .feature-panel {
+            display: grid;
+            gap: 18px;
+        }
+
+        .feature-card,
+        .course-card,
+        .info-card,
+        .enroll-card,
+        .dashboard-card,
+        .course-lesson,
+        .enroll-panel {
+            background: #fff;
+            border-radius: 24px;
+            padding: 24px;
+            box-shadow: 0 18px 40px rgba(31, 58, 136, 0.08);
+            border: 1px solid rgba(229, 233, 241, 0.8);
+        }
+
+        .feature-card h3,
+        .info-card h3,
+        .course-card h3,
+        .enroll-card h3,
+        .course-lesson h2 {
+            color: #1f3c88;
+            margin-bottom: 14px;
+        }
+
+        .feature-card p,
+        .info-card p,
+        .course-card p,
+        .enroll-card p {
+            color: #546a88;
+        }
+
+        .feature-grid {
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        }
+
+        .info-grid {
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        }
+
+        .info-card,
+        .feature-card {
+            border: 1px solid rgba(31, 58, 136, 0.08);
+        }
+
+        .course-list {
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            margin-top: 30px;
+        }
+
+        .course-card {
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .course-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 18px;
+        }
+
+        .course-card .card-body {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .status-badge,
+        .tag {
+            display: inline-flex;
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 0.88rem;
+            font-weight: 600;
+        }
+
+        .status-badge.enrolled {
+            background: #e8f4ff;
+            color: #1f3c88;
+        }
+
+        .status-badge.completed {
+            background: #e6f4ea;
+            color: #206637;
+        }
+
+        .hero-panel,
+        .enroll-panel,
+        .course-lesson {
+            position: relative;
+        }
+
+        .hero-panel .tag,
+        .enroll-card .tag {
+            margin-bottom: 18px;
+        }
+
+        .course-lesson {
+            border-radius: 24px;
+            padding: 28px;
+        }
+
+        .course-lesson .lesson-header {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            align-items: center;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .lesson-header h2 {
+            margin: 0;
+        }
+
+        .course-lesson section {
+            margin-bottom: 24px;
+        }
+
+        .course-lesson pre {
+            background: #f7f9ff;
+            padding: 16px;
+            border-radius: 16px;
+            overflow-x: auto;
+            color: #1b304f;
+        }
+
+        .quiz {
+            background: #f4f8ff;
+            padding: 22px;
+            border-radius: 18px;
+            border: 1px solid rgba(18, 61, 133, 0.08);
+        }
+
+        .quiz ul {
+            list-style: none;
+            margin-top: 14px;
+            display: grid;
+            gap: 12px;
+        }
+
+        .quiz li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 14px;
+            background: #fff;
+            border-radius: 14px;
+            border: 1px solid rgba(31, 58, 136, 0.08);
+        }
+
+        .quiz input {
+            accent-color: #1f3c88;
+        }
+
+        .quiz button {
+            margin-top: 16px;
+        }
+
+        .quiz-result {
+            font-weight: 600;
+            margin-top: 12px;
+        }
+
+        .course-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 24px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            display: grid;
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        .sidebar ul li a {
+            color: #1f3c88;
+            padding: 12px 14px;
+            border-radius: 14px;
+            background: #f8fafd;
+            display: block;
+        }
+
+        .sidebar ul li a:hover {
+            background: #e6f0ff;
+        }
+
+        .dashboard .content h2 {
+            margin-bottom: 18px;
+        }
+
+        .dashboard .content ul {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            gap: 10px;
+        }
+
+        .dashboard .content li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 16px;
+            border-radius: 16px;
+            background: #f7faff;
+            border: 1px solid rgba(31, 58, 136, 0.08);
+        }
+
+        .progress-card {
+            display: grid;
+            gap: 16px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 18px;
+            background: #e8efff;
+            border-radius: 999px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #1f3c88, #4c6bd4);
+            border-radius: 999px;
+            width: 0;
+            transition: width 0.4s ease;
+        }
+
+        .enroll-section {
+            margin-top: 40px;
+        }
+
+        .enroll-grid {
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        }
+
+        .enroll-card {
+            text-align: center;
+        }
+
+        .enroll-card button {
+            margin-top: 18px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 24px 12px;
+            color: #fff;
+            background: #1f3c88;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 0 0 24px 24px;
+        }
+
+        @media (max-width: 900px) {
+            .hero,
+            .section-intro,
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            nav ul {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <h1>Smart Learning Hub</h1>
+                <ul>
+                    <li><a href="#" data-page="home" class="active">Home</a></li>
+                    <li><a href="#" data-page="courses">Courses</a></li>
+                    <li><a href="#" data-page="enroll">Enroll</a></li>
+                    <li><a href="#" data-page="dashboard">Dashboard</a></li>
+                    <li><button id="login-btn">Login</button></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div id="home" class="page active">
+            <section class="hero">
+                <div class="hero-content">
+                    <span class="tag">Learn with confidence</span>
+                    <h2>Build your future with smart programming courses.</h2>
+                    <p>Explore beginner-friendly lessons, track your progress, enroll in courses, and unlock the next section only after you complete the previous one.</p>
+                    <div class="hero-actions">
+                        <button class="btn" onclick="showPage('courses')">Browse Courses</button>
+                        <button class="btn secondary" onclick="showPage('enroll')">Enroll Now</button>
+                    </div>
+                </div>
+                <img src="https://via.placeholder.com/900x320?text=Smart+Learning+Hub" alt="Smart Learning illustration">
+            </section>
+
+            <section class="section-intro">
+                <div class="feature-panel">
+                    <div class="feature-card">
+                        <h3>Interactive study path</h3>
+                        <p>Each course includes guided readings, quick quizzes, and a clear next step so learners always know what to do next.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Student dashboard</h3>
+                        <p>Track your enrolled courses and completed lessons in one polished central dashboard.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Beginner-friendly</h3>
+                        <p>Content is written for beginners, with practical examples and simple, clear explanations.</p>
+                    </div>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>Get started fast</h3>
+                        <p>Open any course and complete the first section quiz to unlock the next lesson.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Practice content</h3>
+                        <p>Quizzes reinforce learning so you can continue only after understanding the previous idea.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="courses" class="page">
+            <h2>Course Catalog</h2>
+            <div class="course-list">
+                <div class="course-card">
+                    <img src="https://via.placeholder.com/450x250?text=HTML+Course" alt="HTML course image">
+                    <div class="card-body">
+                        <h3>Introduction to HTML</h3>
+                        <p>Start building web pages with the foundational language of the internet.</p>
+                        <span class="status-badge enrolled" id="status-html">Open</span>
+                        <div class="course-actions">
+                            <button class="btn secondary enroll-button" data-course="html" onclick="enrollCourse('html')">Enroll</button>
+                            <button class="btn" onclick="showCourse('html')">Start</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="https://via.placeholder.com/450x250?text=CSS+Course" alt="CSS course image">
+                    <div class="card-body">
+                        <h3>CSS Fundamentals</h3>
+                        <p>Learn how to style modern web pages with color, layout, and typography.</p>
+                        <span class="status-badge enrolled" id="status-css">Open</span>
+                        <div class="course-actions">
+                            <button class="btn secondary enroll-button" data-course="css" onclick="enrollCourse('css')">Enroll</button>
+                            <button class="btn" onclick="showCourse('css')">Start</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="https://via.placeholder.com/450x250?text=JavaScript+Course" alt="JavaScript course image">
+                    <div class="card-body">
+                        <h3>JavaScript Basics</h3>
+                        <p>Add interactivity to your web pages using scripts and simple logic.</p>
+                        <span class="status-badge enrolled" id="status-js">Open</span>
+                        <div class="course-actions">
+                            <button class="btn secondary enroll-button" data-course="js" onclick="enrollCourse('js')">Enroll</button>
+                            <button class="btn" onclick="showCourse('js')">Start</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="https://via.placeholder.com/450x250?text=Python+Course" alt="Python course image">
+                    <div class="card-body">
+                        <h3>Python for Beginners</h3>
+                        <p>Write simple programs, handle data, and understand Python syntax.</p>
+                        <span class="status-badge enrolled" id="status-python">Open</span>
+                        <div class="course-actions">
+                            <button class="btn secondary enroll-button" data-course="python" onclick="enrollCourse('python')">Enroll</button>
+                            <button class="btn" onclick="showCourse('python')">Start</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="https://via.placeholder.com/450x250?text=SQL+Course" alt="SQL course image">
+                    <div class="card-body">
+                        <h3>SQL Essentials</h3>
+                        <p>Learn how to store, query, and manage data using simple database commands.</p>
+                        <span class="status-badge enrolled" id="status-sql">Open</span>
+                        <div class="course-actions">
+                            <button class="btn secondary enroll-button" data-course="sql" onclick="enrollCourse('sql')">Enroll</button>
+                            <button class="btn" onclick="showCourse('sql')">Start</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <section class="enroll-section">
+                <div class="course-lesson enroll-panel">
+                    <span class="tag">Enroll today</span>
+                    <h2>Ready to join the learning community?</h2>
+                    <p>Enroll in any course to unlock lessons, track your progress, and access the next section once you finish the previous one.</p>
+                    <div class="course-actions">
+                        <button class="btn" onclick="showPage('dashboard')">View Dashboard</button>
+                        <button class="btn secondary" onclick="showPage('courses')">Choose a Course</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="enroll" class="page">
+            <h2>Enroll in Courses</h2>
+            <div class="enroll-grid">
+                <div class="enroll-card">
+                    <h3>HTML</h3>
+                    <p>Perfect for beginners who want to create their first web pages.</p>
+                    <button class="btn secondary" onclick="enrollCourse('html')">Enroll in HTML</button>
+                </div>
+                <div class="enroll-card">
+                    <h3>CSS</h3>
+                    <p>Learn visual design, layout, and responsive page styling.</p>
+                    <button class="btn secondary" onclick="enrollCourse('css')">Enroll in CSS</button>
+                </div>
+                <div class="enroll-card">
+                    <h3>JavaScript</h3>
+                    <p>Make your pages interactive with basic logic and events.</p>
+                    <button class="btn secondary" onclick="enrollCourse('js')">Enroll in JavaScript</button>
+                </div>
+                <div class="enroll-card">
+                    <h3>Python</h3>
+                    <p>Build beginner programs and learn real coding skills.</p>
+                    <button class="btn secondary" onclick="enrollCourse('python')">Enroll in Python</button>
+                </div>
+                <div class="enroll-card">
+                    <h3>SQL</h3>
+                    <p>Start working with databases and data queries.</p>
+                    <button class="btn secondary" onclick="enrollCourse('sql')">Enroll in SQL</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="dashboard" class="page">
+            <div class="dashboard">
+                <aside class="sidebar">
+                    <h3>Student Menu</h3>
+                    <ul>
+                        <li><a href="#" onclick="showDashboardSection('progress')">My Progress</a></li>
+                        <li><a href="#" onclick="showDashboardSection('courses')">Enrolled Courses</a></li>
+                        <li><a href="#" onclick="showDashboardSection('settings')">Settings</a></li>
+                    </ul>
+                </aside>
+                <section class="content">
+                    <h2>Welcome to Your Dashboard</h2>
+                    <div id="student-name">
+                        <p>Logged in as: <strong id="name-display"></strong></p>
+                    </div>
+                    <div id="progress-section" class="progress-card">
+                        <h3>Overall Progress</h3>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progress-fill"></div>
+                        </div>
+                        <p id="progress-text"></p>
+                    </div>
+                    <div id="courses-section" class="hidden">
+                        <h3>Enrolled Courses</h3>
+                        <ul id="enrolled-list"></ul>
+                    </div>
+                    <div id="settings-section" class="hidden">
+                        <h3>Settings</h3>
+                        <p>Update your learning preferences and manage your dashboard from here.</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <div id="course-content" class="page">
+            <div id="html-course" class="course-lesson hidden">
+                <div class="lesson-header">
+                    <h2>Introduction to HTML</h2>
+                    <span class="status-badge" id="course-status-html">Not started</span>
+                </div>
+                <div id="html-section1" class="lesson-page">
+                    <h3>Section 1: HTML Basics</h3>
+                    <p>HTML is the structure of web pages. It uses tags like <code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code>, and <code>&lt;a&gt;</code> to build content.</p>
+                    <pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;My Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Hello World&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                    <div class="quiz">
+                        <h4>Quiz: HTML Basics</h4>
+                        <p>Which tag defines a paragraph?</p>
+                        <ul>
+                            <li><label><input type="radio" name="quiz-html" value="a"> &lt;p&gt;</label></li>
+                            <li><label><input type="radio" name="quiz-html" value="b"> &lt;div&gt;</label></li>
+                            <li><label><input type="radio" name="quiz-html" value="c"> &lt;a&gt;</label></li>
+                        </ul>
+                        <button class="btn" onclick="checkQuiz('quiz-html', 'a', 'html')">Submit</button>
+                        <p class="quiz-result" id="result-html"></p>
+                    </div>
+                    <div class="course-actions">
+                        <button id="html-next" class="btn secondary" onclick="goToCourseSection('html', 2)" disabled>Next Section</button>
+                    </div>
+                </div>
+                <div id="html-section2" class="lesson-page hidden">
+                    <h3>Section 2: HTML Page Structure</h3>
+                    <p>Use tags like <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, and <code>&lt;footer&gt;</code> to organize your page.</p>
+                    <p>Example structure:</p>
+                    <pre>&lt;body&gt;
+  &lt;header&gt;...&lt;/header&gt;
+  &lt;main&gt;...&lt;/main&gt;
+  &lt;footer&gt;...&lt;/footer&gt;
+&lt;/body&gt;</pre>
+                    <button class="btn" onclick="completeCourse('html')">Finish HTML Course</button>
+                </div>
+            </div>
+
+            <div id="css-course" class="course-lesson hidden">
+                <div class="lesson-header">
+                    <h2>CSS Fundamentals</h2>
+                    <span class="status-badge" id="course-status-css">Not started</span>
+                </div>
+                <div id="css-section1" class="lesson-page">
+                    <h3>Section 1: What is CSS?</h3>
+                    <p>CSS controls the visual appearance of HTML. Use selectors and properties to change colors, spacing, and layout.</p>
+                    <pre>body {
+  background-color: #f4f7ff;
+  font-family: Arial, sans-serif;
+}</pre>
+                    <div class="quiz">
+                        <h4>Quiz: CSS Basics</h4>
+                        <p>Which property changes the background color?</p>
+                        <ul>
+                            <li><label><input type="radio" name="quiz-css" value="a"> color</label></li>
+                            <li><label><input type="radio" name="quiz-css" value="b"> background-color</label></li>
+                            <li><label><input type="radio" name="quiz-css" value="c"> font-size</label></li>
+                        </ul>
+                        <button class="btn" onclick="checkQuiz('quiz-css', 'b', 'css')">Submit</button>
+                        <p class="quiz-result" id="result-css"></p>
+                    </div>
+                    <div class="course-actions">
+                        <button id="css-next" class="btn secondary" onclick="goToCourseSection('css', 2)" disabled>Next Section</button>
+                    </div>
+                </div>
+                <div id="css-section2" class="lesson-page hidden">
+                    <h3>Section 2: Selectors and Styling</h3>
+                    <p>Select elements using classes (<code>.card</code>) and IDs (<code>#header</code>) and apply style rules.</p>
+                    <pre>.card {
+  border-radius: 16px;
+  box-shadow: 0 12px 25px rgba(31, 58, 136, 0.15);
+}</pre>
+                    <button class="btn" onclick="completeCourse('css')">Finish CSS Course</button>
+                </div>
+            </div>
+
+            <div id="js-course" class="course-lesson hidden">
+                <div class="lesson-header">
+                    <h2>JavaScript Basics</h2>
+                    <span class="status-badge" id="course-status-js">Not started</span>
+                </div>
+                <div id="js-section1" class="lesson-page">
+                    <h3>Section 1: What is JavaScript?</h3>
+                    <p>JavaScript makes web pages interactive by running code in the browser.</p>
+                    <pre>console.log('Hello World');</pre>
+                    <div class="quiz">
+                        <h4>Quiz: JavaScript Basics</h4>
+                        <p>What does <code>console.log</code> do?</p>
+                        <ul>
+                            <li><label><input type="radio" name="quiz-js" value="a"> Prints text in the browser console</label></li>
+                            <li><label><input type="radio" name="quiz-js" value="b"> Adds a new heading</label></li>
+                            <li><label><input type="radio" name="quiz-js" value="c"> Styles a button</label></li>
+                        </ul>
+                        <button class="btn" onclick="checkQuiz('quiz-js', 'a', 'js')">Submit</button>
+                        <p class="quiz-result" id="result-js"></p>
+                    </div>
+                    <div class="course-actions">
+                        <button id="js-next" class="btn secondary" onclick="goToCourseSection('js', 2)" disabled>Next Section</button>
+                    </div>
+                </div>
+                <div id="js-section2" class="lesson-page hidden">
+                    <h3>Section 2: Variables and Functions</h3>
+                    <p>Use <code>let</code> or <code>const</code> to store values, and define functions to reuse logic.</p>
+                    <pre>function greet(name) {
+  return 'Hello ' + name;
+}</pre>
+                    <button class="btn" onclick="completeCourse('js')">Finish JavaScript Course</button>
+                </div>
+            </div>
+
+            <div id="python-course" class="course-lesson hidden">
+                <div class="lesson-header">
+                    <h2>Python for Beginners</h2>
+                    <span class="status-badge" id="course-status-python">Not started</span>
+                </div>
+                <div id="python-section1" class="lesson-page">
+                    <h3>Section 1: Python Basics</h3>
+                    <p>Python is a simple programming language used for web apps, data, and automation.</p>
+                    <pre>name = 'Jessica'
+print('Hello', name)</pre>
+                    <div class="quiz">
+                        <h4>Quiz: Python Basics</h4>
+                        <p>What symbol is used to assign a value?</p>
+                        <ul>
+                            <li><label><input type="radio" name="quiz-python" value="a"> ==</label></li>
+                            <li><label><input type="radio" name="quiz-python" value="b"> =</label></li>
+                            <li><label><input type="radio" name="quiz-python" value="c"> :</label></li>
+                        </ul>
+                        <button class="btn" onclick="checkQuiz('quiz-python', 'b', 'python')">Submit</button>
+                        <p class="quiz-result" id="result-python"></p>
+                    </div>
+                    <div class="course-actions">
+                        <button id="python-next" class="btn secondary" onclick="goToCourseSection('python', 2)" disabled>Next Section</button>
+                    </div>
+                </div>
+                <div id="python-section2" class="lesson-page hidden">
+                    <h3>Section 2: Python Functions</h3>
+                    <p>Functions wrap code so you can run the same logic again and again.</p>
+                    <pre>def greet(name):
+  return 'Hello ' + name</pre>
+                    <button class="btn" onclick="completeCourse('python')">Finish Python Course</button>
+                </div>
+            </div>
+
+            <div id="sql-course" class="course-lesson hidden">
+                <div class="lesson-header">
+                    <h2>SQL Essentials</h2>
+                    <span class="status-badge" id="course-status-sql">Not started</span>
+                </div>
+                <div id="sql-section1" class="lesson-page">
+                    <h3>Section 1: SQL Basics</h3>
+                    <p>SQL is used to search and manage data in databases using commands such as SELECT and INSERT.</p>
+                    <pre>SELECT * FROM students;</pre>
+                    <div class="quiz">
+                        <h4>Quiz: SQL Basics</h4>
+                        <p>Which command reads data from a table?</p>
+                        <ul>
+                            <li><label><input type="radio" name="quiz-sql" value="a"> DELETE</label></li>
+                            <li><label><input type="radio" name="quiz-sql" value="b"> SELECT</label></li>
+                            <li><label><input type="radio" name="quiz-sql" value="c"> UPDATE</label></li>
+                        </ul>
+                        <button class="btn" onclick="checkQuiz('quiz-sql', 'b', 'sql')">Submit</button>
+                        <p class="quiz-result" id="result-sql"></p>
+                    </div>
+                    <div class="course-actions">
+                        <button id="sql-next" class="btn secondary" onclick="goToCourseSection('sql', 2)" disabled>Next Section</button>
+                    </div>
+                </div>
+                <div id="sql-section2" class="lesson-page hidden">
+                    <h3>Section 2: Filtering Data</h3>
+                    <p>Use WHERE to narrow results and ORDER BY to sort them.</p>
+                    <pre>SELECT name FROM students
+WHERE grade &gt;= 80
+ORDER BY name;</pre>
+                    <button class="btn" onclick="completeCourse('sql')">Finish SQL Course</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Smart Learning Hub. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const courseList = ['html', 'css', 'js', 'python', 'sql'];
+        const courseNames = {
+            html: 'HTML',
+            css: 'CSS',
+            js: 'JavaScript',
+            python: 'Python',
+            sql: 'SQL'
+        };
+
+        let currentStudent = localStorage.getItem('student') || null;
+        let enrolledCourses = JSON.parse(localStorage.getItem('enrolledCourses') || '[]');
+        let progress = JSON.parse(localStorage.getItem('progress') || '{}');
+
+        document.querySelectorAll('nav a[data-page]').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const page = this.getAttribute('data-page');
+                showPage(page);
+            });
+        });
+
+        document.getElementById('login-btn').addEventListener('click', function () {
+            promptLogin();
+        });
+
+        function promptLogin() {
+            const username = prompt('Enter your name to login:');
+            if (username) {
+                currentStudent = username.trim();
+                localStorage.setItem('student', currentStudent);
+                document.getElementById('name-display').textContent = currentStudent;
+                showPage('dashboard');
+            }
+        }
+
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+            const page = document.getElementById(pageId);
+            if (page) {
+                page.classList.add('active');
+            }
+            document.querySelectorAll('nav a[data-page]').forEach(link => link.classList.remove('active'));
+            const activeLink = document.querySelector(`nav a[data-page="${pageId}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+        }
+
+        function isEnrolled(courseId) {
+            return enrolledCourses.includes(courseId);
+        }
+
+        function enrollCourse(courseId) {
+            if (!currentStudent) {
+                alert('Please log in first.');
+                promptLogin();
+                return;
+            }
+            if (!isEnrolled(courseId)) {
+                enrolledCourses.push(courseId);
+                localStorage.setItem('enrolledCourses', JSON.stringify(enrolledCourses));
+                alert(`You are now enrolled in ${courseNames[courseId]}.`);
+            }
+            updateEnrollButtons();
+            updateDashboardCourses();
+        }
+
+        function updateEnrollButtons() {
+            document.querySelectorAll('.enroll-button').forEach(button => {
+                const courseId = button.dataset.course;
+                if (isEnrolled(courseId)) {
+                    button.textContent = 'Enrolled';
+                    button.disabled = true;
+                } else {
+                    button.textContent = 'Enroll';
+                    button.disabled = false;
+                }
+            });
+        }
+
+        function showCourse(courseId) {
+            if (!isEnrolled(courseId)) {
+                alert('Please enroll in this course first.');
+                showPage('enroll');
+                return;
+            }
+            courseList.forEach(id => {
+                document.getElementById(`${id}-course`).classList.add('hidden');
+            });
+            document.getElementById(`${courseId}-course`).classList.remove('hidden');
+            showPage('course-content');
+            const sectionNumber = progress[`${courseId}-section1`] ? 2 : 1;
+            goToCourseSection(courseId, sectionNumber);
+            updateCourseState(courseId);
+        }
+
+        function goToCourseSection(courseId, sectionNumber) {
+            const course = document.getElementById(`${courseId}-course`);
+            course.querySelectorAll('.lesson-page').forEach(block => block.classList.add('hidden'));
+            const section = document.getElementById(`${courseId}-section${sectionNumber}`);
+            if (section) {
+                section.classList.remove('hidden');
+            }
+        }
+
+        function checkQuiz(quizId, correctAnswer, courseId) {
+            const selected = document.querySelector(`input[name="${quizId}"]:checked`);
+            const result = document.getElementById(`result-${courseId}`);
+            if (!selected) {
+                result.textContent = 'Please choose an answer to continue.';
+                result.style.color = '#e68341';
+                return;
+            }
+            if (selected.value === correctAnswer) {
+                result.textContent = 'Great job! You can now continue to the next section.';
+                result.style.color = '#206637';
+                progress[`${courseId}-section1`] = true;
+                localStorage.setItem('progress', JSON.stringify(progress));
+                const nextButton = document.getElementById(`${courseId}-next`);
+                if (nextButton) {
+                    nextButton.disabled = false;
+                }
+                updateProgressDisplay();
+                updateCourseState(courseId);
+            } else {
+                result.textContent = 'Not quite right. Try again.';
+                result.style.color = '#c0392b';
+            }
+        }
+
+        function completeCourse(courseId) {
+            progress[`${courseId}-completed`] = true;
+            localStorage.setItem('progress', JSON.stringify(progress));
+            updateProgressDisplay();
+            updateCourseState(courseId);
+            alert(`${courseNames[courseId]} course completed. Great work!`);
+        }
+
+        function updateCourseState(courseId) {
+            const statusLabel = document.getElementById(`course-status-${courseId}`);
+            if (!statusLabel) return;
+            if (progress[`${courseId}-completed`]) {
+                statusLabel.textContent = 'Completed';
+                statusLabel.className = 'status-badge completed';
+            } else if (progress[`${courseId}-section1`]) {
+                statusLabel.textContent = 'In progress';
+                statusLabel.className = 'status-badge enrolled';
+            } else {
+                statusLabel.textContent = 'Not started';
+                statusLabel.className = 'status-badge';
+            }
+
+            const nextButton = document.getElementById(`${courseId}-next`);
+            if (nextButton) {
+                nextButton.disabled = !progress[`${courseId}-section1`];
+            }
+        }
+
+        function showDashboardSection(section) {
+            document.querySelectorAll('#dashboard .content > div').forEach(div => div.classList.add('hidden'));
+            const target = document.getElementById(`${section}-section`);
+            if (target) {
+                target.classList.remove('hidden');
+            }
+        }
+
+        function updateDashboardCourses() {
+            const enrolledList = document.getElementById('enrolled-list');
+            enrolledList.innerHTML = '';
+            if (enrolledCourses.length === 0) {
+                enrolledList.innerHTML = '<li>You are not enrolled in any course yet. Please enroll above.</li>';
+                return;
+            }
+            enrolledCourses.forEach(courseId => {
+                const status = progress[`${courseId}-completed`] ? 'Completed' : (progress[`${courseId}-section1`] ? 'In progress' : 'Enrolled');
+                const item = document.createElement('li');
+                item.innerHTML = `<span>${courseNames[courseId]}</span><strong>${status}</strong>`;
+                enrolledList.appendChild(item);
+            });
+        }
+
+        function updateProgressDisplay() {
+            const completedCourses = courseList.filter(courseId => progress[`${courseId}-completed`]).length;
+            const totalCourses = courseList.length;
+            const percentage = Math.round((completedCourses / totalCourses) * 100);
+            const progressFill = document.getElementById('progress-fill');
+            const progressText = document.getElementById('progress-text');
+            if (progressFill) {
+                progressFill.style.width = `${percentage}%`;
+            }
+            if (progressText) {
+                progressText.textContent = `Completed ${completedCourses} of ${totalCourses} courses (${percentage}%)`;
+            }
+            courseList.forEach(courseId => {
+                const badge = document.getElementById(`status-${courseId}`);
+                if (!badge) return;
+                if (progress[`${courseId}-completed`]) {
+                    badge.textContent = 'Completed';
+                    badge.className = 'status-badge completed';
+                } else if (isEnrolled(courseId)) {
+                    badge.textContent = 'Enrolled';
+                    badge.className = 'status-badge enrolled';
+                } else {
+                    badge.textContent = 'Open';
+                    badge.className = 'status-badge';
+                }
+            });
+        }
+
+        function initializePage() {
+            if (currentStudent) {
+                document.getElementById('name-display').textContent = currentStudent;
+            }
+            updateEnrollButtons();
+            updateDashboardCourses();
+            updateProgressDisplay();
+            courseList.forEach(updateCourseState);
+            showDashboardSection('progress');
+        }
+
+        initializePage();
+    </script>
+</body>
+</html>

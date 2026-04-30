@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Smart Learning Hub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <h1>Smart Learning Hub</h1>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="#" id="logout-btn">Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="dashboard">
+        <aside class="sidebar">
+            <h3>Student Menu</h3>
+            <ul>
+                <li><a href="#progress">My Progress</a></li>
+                <li><a href="#courses">Enrolled Courses</a></li>
+                <li><a href="#settings">Settings</a></li>
+            </ul>
+        </aside>
+
+        <section class="content">
+            <h2>Welcome to Your Dashboard</h2>
+            <div id="student-name">
+                <p>Logged in as: <span id="name-display"></span></p>
+            </div>
+
+            <div id="progress">
+                <h3>My Progress</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <p id="progress-text"></p>
+            </div>
+
+            <div id="courses">
+                <h3>Enrolled Courses</h3>
+                <ul>
+                    <li>Introduction to HTML - <span id="html-status">Not Started</span></li>
+                    <li>CSS Fundamentals - <span id="css-status">Not Started</span></li>
+                    <li>JavaScript Basics - <span id="js-status">Not Started</span></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Smart Learning Hub. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Display student name
+        const student = localStorage.getItem('student');
+        if (student) {
+            document.getElementById('name-display').textContent = student;
+        } else {
+            window.location.href = 'index.html';
+        }
+
+        // Logout
+        document.getElementById('logout-btn').addEventListener('click', function() {
+            localStorage.removeItem('student');
+            window.location.href = 'index.html';
+        });
+
+        // Update course status based on progress
+        const progress = JSON.parse(localStorage.getItem('progress')) || {};
+        if (progress['quiz1']) document.getElementById('html-status').textContent = 'Completed';
+        if (progress['quiz2']) document.getElementById('css-status').textContent = 'Completed';
+        if (progress['quiz3']) document.getElementById('js-status').textContent = 'Completed';
+    </script>
+</body>
+</html>

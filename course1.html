@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to HTML - Smart Learning Hub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <h1>Smart Learning Hub</h1>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="#" id="login-btn">Login</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Introduction to HTML</h2>
+
+        <section class="course-section">
+            <h3>Section 1: What is HTML?</h3>
+            <p>HTML stands for HyperText Markup Language. It is the standard markup language for creating web pages. HTML describes the structure of a web page using markup.</p>
+            <p>Example:</p>
+            <pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;My Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Hello World&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+        </section>
+
+        <section class="course-section">
+            <h3>Section 2: Basic Tags</h3>
+            <p>Common HTML tags include &lt;h1&gt; for headings, &lt;p&gt; for paragraphs, and &lt;a&gt; for links.</p>
+            <p>Example: &lt;a href="https://example.com"&gt;Visit Example&lt;/a&gt;</p>
+        </section>
+
+        <div class="quiz">
+            <h4>Quiz: HTML Basics</h4>
+            <p>What does HTML stand for?</p>
+            <ul>
+                <li><input type="radio" name="quiz1" value="a"> HyperText Markup Language</li>
+                <li><input type="radio" name="quiz1" value="b"> High Tech Modern Language</li>
+                <li><input type="radio" name="quiz1" value="c"> Home Tool Markup Language</li>
+            </ul>
+            <button onclick="checkQuiz('quiz1', 'a')">Submit</button>
+            <p id="result-quiz1"></p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Smart Learning Hub. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
