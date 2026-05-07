@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Smart Learning Hub</title>
+    <title>Dashboard - G-HUB</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
         <nav>
             <div class="nav-container">
-                <h1>Smart Learning Hub</h1>
+                <h1>G-HUB</h1>
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="courses.html">Courses</a></li>
                     <li><a href="dashboard.html">Dashboard</a></li>
-                    <li><a href="#" id="logout-btn">Logout</a></li>
+                    <li><a href="#" id="logout-link">Logout</a></li>
                 </ul>
             </div>
         </nav>
@@ -23,64 +23,143 @@
 
     <main class="dashboard">
         <aside class="sidebar">
-            <h3>Student Menu</h3>
+            <h3>Management Menu</h3>
             <ul>
-                <li><a href="#progress">My Progress</a></li>
-                <li><a href="#courses">Enrolled Courses</a></li>
-                <li><a href="#settings">Settings</a></li>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#search">Search</a></li>
+                <li><a href="#actions">Actions</a></li>
             </ul>
         </aside>
 
         <section class="content">
-            <h2>Welcome to Your Dashboard</h2>
-            <div id="student-name">
-                <p>Logged in as: <span id="name-display"></span></p>
-            </div>
-
-            <div id="progress">
-                <h3>My Progress</h3>
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progress-fill"></div>
+            <div class="dashboard-header">
+                <div>
+                    <h2>Welcome, <span id="name-display"></span></h2>
+                    <p>Account type: <strong id="role-display"></strong></p>
                 </div>
-                <p id="progress-text"></p>
+                <button id="logout-btn" class="btn">Logout</button>
             </div>
 
-            <div id="courses">
+            <div class="dashboard-overview">
+                <h3>Your Progress</h3>
+                <div class="progress-bar">
+                    <div id="progress-fill" style="width: 0%;"></div>
+                </div>
+                <p id="progress-text">Progress: 0/9 (0%)</p>
+            </div>
+
+            <div class="enrolled-courses">
                 <h3>Enrolled Courses</h3>
-                <ul>
-                    <li>Introduction to HTML - <span id="html-status">Not Started</span></li>
-                    <li>CSS Fundamentals - <span id="css-status">Not Started</span></li>
-                    <li>JavaScript Basics - <span id="js-status">Not Started</span></li>
+                <div class="course-grid">
+                    <div class="course-item" data-course="html">
+                        <h4>HTML</h4>
+                        <p>Progress: <span id="html-progress">0%</span></p>
+                        <button class="btn continue-btn" onclick="location.href='course1.html'">Continue</button>
+                    </div>
+                    <div class="course-item" data-course="css">
+                        <h4>CSS</h4>
+                        <p>Progress: <span id="css-progress">0%</span></p>
+                        <button class="btn continue-btn" onclick="location.href='course2.html'">Continue</button>
+                    </div>
+                    <div class="course-item" data-course="js">
+                        <h4>JavaScript</h4>
+                        <p>Progress: <span id="js-progress">0%</span></p>
+                        <button class="btn continue-btn" onclick="location.href='course3.html'">Continue</button>
+                    </div>
+                    <div class="course-item" data-course="python">
+                        <h4>Python</h4>
+                        <p>Progress: <span id="python-progress">0%</span></p>
+                        <button class="btn continue-btn" onclick="location.href='course4.html'">Continue</button>
+                    </div>
+                    <div class="course-item" data-course="math">
+                        <h4>Mathematics</h4>
+                        <p>Progress: <span id="math-progress">0%</span></p>
+                        <button class="btn continue-btn" onclick="location.href='math.html'">Continue</button>
+                    </div>
+                    <div class="course-item" data-course="physics">
+                        <h4>Physics</h4>
+                        <p>Progress: <span id="physics-progress">0%</span></p>
+                        <button class="btn continue-btn" onclick="location.href='science1.html'">Continue</button>
+                    </div>
+                    <div class="course-item" data-course="chemistry">
+                        <h4>Chemistry</h4>
+                        <p>Progress: <span id="chemistry-progress">0%</span></p>
+                        <button class="btn continue-btn" onclick="location.href='science2.html'">Continue</button>
+                    </div>
+                    <div class="course-item" data-course="biology">
+                        <h4>Biology</h4>
+                        <p>Progress: <span id="biology-progress">0%</span></p>
+                        <button class="btn continue-btn" onclick="location.href='science3.html'">Continue</button>
+                    </div>
+                    <div class="course-item" data-course="economics">
+                        <h4>Economics</h4>
+                        <p>Progress: <span id="economics-progress">0%</span></p>
+                        <button class="btn continue-btn" onclick="location.href='econ.html'">Continue</button>
+                    </div>
+                </div>
+            </div>
+
+            <section class="quiz-links">
+                <h3>Test Yourself</h3>
+                <p>Click a quiz below to test your knowledge and update your dashboard progress.</p>
+                <div class="course-grid">
+                    <div class="course-item">
+                        <h4>HTML Quiz</h4>
+                        <button class="btn" onclick="location.href='course1.html'">Take HTML Quiz</button>
+                    </div>
+                    <div class="course-item">
+                        <h4>CSS Quiz</h4>
+                        <button class="btn" onclick="location.href='course2.html'">Take CSS Quiz</button>
+                    </div>
+                    <div class="course-item">
+                        <h4>JavaScript Quiz</h4>
+                        <button class="btn" onclick="location.href='course3.html'">Take JS Quiz</button>
+                    </div>
+                    <div class="course-item">
+                        <h4>Python Quiz</h4>
+                        <button class="btn" onclick="location.href='course4.html'">Take Python Quiz</button>
+                    </div>
+                </div>
+            </section>
+
+            <div class="achievements">
+                <h3>Achievements</h3>
+                <ul id="achievements-list">
+                    <li>Complete your first course to unlock badges!</li>
                 </ul>
+            </div>
+
+            <div class="role-panel" id="role-panel">
+                <div class="role-search" id="role-search">
+                    <input type="text" id="search-input" placeholder="Search items...">
+                    <button id="add-item-btn" class="btn add-btn">+ Add Item</button>
+                </div>
+                <div id="role-dashboard-content"></div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 Smart Learning Hub. All rights reserved.</p>
+        <p>&copy; 2026 G-HUB. All rights reserved.</p>
     </footer>
 
     <script src="script.js"></script>
     <script>
-        // Display student name
         const student = localStorage.getItem('student');
-        if (student) {
-            document.getElementById('name-display').textContent = student;
+        if (!student) {
+            window.location.href = 'login.html';
         } else {
-            window.location.href = 'index.html';
+            document.getElementById('name-display').textContent = student;
+            document.getElementById('role-display').textContent = 'Student';
         }
 
-        // Logout
-        document.getElementById('logout-btn').addEventListener('click', function() {
-            localStorage.removeItem('student');
-            window.location.href = 'index.html';
-        });
-
-        // Update course status based on progress
-        const progress = JSON.parse(localStorage.getItem('progress')) || {};
-        if (progress['quiz1']) document.getElementById('html-status').textContent = 'Completed';
-        if (progress['quiz2']) document.getElementById('css-status').textContent = 'Completed';
-        if (progress['quiz3']) document.getElementById('js-status').textContent = 'Completed';
+        const logoutButton = document.getElementById('logout-btn');
+        if (logoutButton) {
+            logoutButton.addEventListener('click', function() {
+                localStorage.removeItem('student');
+                window.location.href = 'login.html';
+            });
+        }
     </script>
 </body>
 </html>

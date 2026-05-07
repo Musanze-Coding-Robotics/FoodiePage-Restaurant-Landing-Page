@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Fundamentals - Smart Learning Hub</title>
+    <title>CSS Fundamentals - G-HUB</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
         <nav>
             <div class="nav-container">
-                <h1>Smart Learning Hub</h1>
+                <h1>G-HUB</h1>
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="courses.html">Courses</a></li>
@@ -25,31 +25,82 @@
         <h2>CSS Fundamentals</h2>
 
         <section class="course-section">
-            <h3>Section 1: What is CSS?</h3>
-            <p>CSS stands for Cascading Style Sheets. It is used to describe the presentation of a document written in HTML.</p>
-            <p>Example: body { background-color: lightblue; }</p>
+            <h3>What is CSS?</h3>
+            <p>CSS stands for Cascading Style Sheets. It describes how HTML elements are to be displayed on screen, paper, or in other media.</p>
+            <p>CSS saves a lot of work. It can control the layout of multiple web pages all at once.</p>
         </section>
 
         <section class="course-section">
-            <h3>Section 2: Selectors and Properties</h3>
-            <p>Use selectors like .class or #id to target elements. Properties like color, font-size control appearance.</p>
+            <h3>CSS Syntax</h3>
+            <p>A CSS rule consists of a selector and a declaration block.</p>
+            <p>Example:</p>
+            <pre>h1 {
+  color: blue;
+  font-size: 12px;
+}</pre>
+        </section>
+
+        <section class="course-section">
+            <h3>CSS Selectors</h3>
+            <p>CSS selectors are used to "find" (or select) the HTML elements you want to style.</p>
+            <p>Types: Element selectors (p), ID selectors (#id), Class selectors (.class)</p>
+        </section>
+
+        <section class="course-section">
+            <h3>CSS Colors</h3>
+            <p>Colors in CSS can be specified by color name, RGB, HEX, HSL, etc.</p>
+            <p>Example: color: red; or color: #ff0000;</p>
+        </section>
+
+        <section class="course-section">
+            <h3>CSS Backgrounds</h3>
+            <p>The background properties are used to define the background effects for elements.</p>
+            <p>Example: background-color: lightblue;</p>
+        </section>
+
+        <section class="course-section">
+            <h3>CSS Borders</h3>
+            <p>The border properties allow you to specify the style, width, and color of an element's border.</p>
+            <p>Example: border: 2px solid black;</p>
+        </section>
+
+        <section class="course-section">
+            <h3>CSS Margins and Padding</h3>
+            <p>Margins are used to create space around elements, outside of any defined borders. Padding is used to create space around an element's content.</p>
+            <p>Example: margin: 10px; padding: 10px;</p>
+        </section>
+
+        <section class="course-section">
+            <h3>CSS Box Model</h3>
+            <p>The CSS box model is essentially a box that wraps around every HTML element. It consists of: margins, borders, padding, and the actual content.</p>
+        </section>
+
+        <section class="course-section">
+            <h3>CSS Flexbox</h3>
+            <p>Flexbox is a one-dimensional layout method for laying out items in rows or columns.</p>
+            <p>Example: display: flex;</p>
+        </section>
+
+        <section class="course-section">
+            <h3>CSS Grid</h3>
+            <p>CSS Grid Layout is a two-dimensional layout method for the web.</p>
+            <p>Example: display: grid;</p>
         </section>
 
         <div class="quiz">
             <h4>Quiz: CSS Basics</h4>
             <p>What does CSS stand for?</p>
             <ul>
-                <li><input type="radio" name="quiz2" value="a"> Cascading Style Sheets</li>
-                <li><input type="radio" name="quiz2" value="b"> Computer Style System</li>
-                <li><input type="radio" name="quiz2" value="c"> Creative Style Script</li>
+                <li>A) Cascading Style Sheets</li>
+                <li>B) Computer Style System</li>
+                <li>C) Creative Style Script</li>
             </ul>
-            <button onclick="checkQuiz('quiz2', 'a')">Submit</button>
-            <p id="result-quiz2"></p>
+            <p>Answer: A) Cascading Style Sheets</p>
         </div>
     </main>
 
     <footer>
-        <p>&copy; 2026 Smart Learning Hub. All rights reserved.</p>
+        <p>&copy; 2026 G-HUB. All rights reserved.</p>
     </footer>
 
     <script src="script.js"></script>

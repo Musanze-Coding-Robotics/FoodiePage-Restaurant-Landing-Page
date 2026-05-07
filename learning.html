@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Learning Hub</title>
+    <title>G-HUB</title>
     <style>
         * {
             margin: 0;
@@ -451,7 +451,7 @@
     <header>
         <nav>
             <div class="nav-container">
-                <h1>Smart Learning Hub</h1>
+                <h1>G-HUB</h1>
                 <ul>
                     <li><a href="#" data-page="home" class="active">Home</a></li>
                     <li><a href="#" data-page="courses">Courses</a></li>
@@ -475,7 +475,7 @@
                         <button class="btn secondary" onclick="showPage('enroll')">Enroll Now</button>
                     </div>
                 </div>
-                <img src="https://via.placeholder.com/900x320?text=Smart+Learning+Hub" alt="Smart Learning illustration">
+                <img src="images/hero.jpg" alt="Smart Learning illustration">
             </section>
 
             <section class="section-intro">
@@ -510,7 +510,7 @@
             <h2>Course Catalog</h2>
             <div class="course-list">
                 <div class="course-card">
-                    <img src="https://via.placeholder.com/450x250?text=HTML+Course" alt="HTML course image">
+                    <img src="images/html-course.jpg" alt="HTML course image">
                     <div class="card-body">
                         <h3>Introduction to HTML</h3>
                         <p>Start building web pages with the foundational language of the internet.</p>
@@ -522,7 +522,7 @@
                     </div>
                 </div>
                 <div class="course-card">
-                    <img src="https://via.placeholder.com/450x250?text=CSS+Course" alt="CSS course image">
+                    <img src="images/css-course.jpg" alt="CSS course image">
                     <div class="card-body">
                         <h3>CSS Fundamentals</h3>
                         <p>Learn how to style modern web pages with color, layout, and typography.</p>
@@ -534,7 +534,7 @@
                     </div>
                 </div>
                 <div class="course-card">
-                    <img src="https://via.placeholder.com/450x250?text=JavaScript+Course" alt="JavaScript course image">
+                    <img src="images/js-course.jpg" alt="JavaScript course image">
                     <div class="card-body">
                         <h3>JavaScript Basics</h3>
                         <p>Add interactivity to your web pages using scripts and simple logic.</p>
@@ -546,7 +546,7 @@
                     </div>
                 </div>
                 <div class="course-card">
-                    <img src="https://via.placeholder.com/450x250?text=Python+Course" alt="Python course image">
+                    <img src="images/python-course.jpg" alt="Python course image">
                     <div class="card-body">
                         <h3>Python for Beginners</h3>
                         <p>Write simple programs, handle data, and understand Python syntax.</p>
@@ -558,7 +558,7 @@
                     </div>
                 </div>
                 <div class="course-card">
-                    <img src="https://via.placeholder.com/450x250?text=SQL+Course" alt="SQL course image">
+                    <img src="images/sql-course.jpg" alt="SQL course image">
                     <div class="card-body">
                         <h3>SQL Essentials</h3>
                         <p>Learn how to store, query, and manage data using simple database commands.</p>
@@ -657,7 +657,17 @@
                 </div>
                 <div id="html-section1" class="lesson-page">
                     <h3>Section 1: HTML Basics</h3>
-                    <p>HTML is the structure of web pages. It uses tags like <code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code>, and <code>&lt;a&gt;</code> to build content.</p>
+                    <p>HTML (HyperText Markup Language) is the foundation of all web pages. It provides the structure and content that browsers display. HTML works by using tags to mark up content and tell browsers how to interpret it.</p>
+                    <h4>Key Points:</h4>
+                    <ul style="margin: 10px 0; padding-left: 20px;">
+                        <li><strong>&lt;h1&gt; to &lt;h6&gt;</strong> - Heading tags for titles and subtitles (h1 is largest, h6 is smallest)</li>
+                        <li><strong>&lt;p&gt;</strong> - Paragraph tag for text blocks</li>
+                        <li><strong>&lt;a&gt;</strong> - Anchor tag for creating links to other pages</li>
+                        <li><strong>&lt;img&gt;</strong> - Image tag to display pictures on your page</li>
+                        <li><strong>&lt;div&gt;</strong> - Division tag to group related content</li>
+                        <li><strong>&lt;li&gt;</strong> - List item tag for bullet points and numbered lists</li>
+                    </ul>
+                    <h4>Example - Basic HTML Structure:</h4>
                     <pre>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
@@ -667,6 +677,11 @@
   &lt;h1&gt;Hello World&lt;/h1&gt;
 &lt;/body&gt;
 &lt;/html&gt;</pre>
+                    <div class="video-tutorial">
+                        <h4>Video Tutorial</h4>
+                        <video controls width="100%" src="videos/tutorial-html.mp4"></video>
+                        <p>Watch this short tutorial to see how HTML tags work together and how to build a simple page.</p>
+                    </div>
                     <div class="quiz">
                         <h4>Quiz: HTML Basics</h4>
                         <p>Which tag defines a paragraph?</p>
@@ -679,18 +694,35 @@
                         <p class="quiz-result" id="result-html"></p>
                     </div>
                     <div class="course-actions">
-                        <button id="html-next" class="btn secondary" onclick="goToCourseSection('html', 2)" disabled>Next Section</button>
+                        <button id="html-next" class="btn secondary" onclick="goToCourseSection('html', 2)" disabled>Continue</button>
                     </div>
                 </div>
                 <div id="html-section2" class="lesson-page hidden">
                     <h3>Section 2: HTML Page Structure</h3>
-                    <p>Use tags like <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, and <code>&lt;footer&gt;</code> to organize your page.</p>
-                    <p>Example structure:</p>
+                    <p>Semantic HTML tags help organize page content logically. These tags tell both browsers and developers what each section of the page represents. Using semantic tags makes your code more readable and improves accessibility.</p>
+                    <h4>Important Semantic Tags:</h4>
+                    <ul style="margin: 10px 0; padding-left: 20px;">
+                        <li><strong>&lt;header&gt;</strong> - Contains navigation, logos, and introductory content</li>
+                        <li><strong>&lt;nav&gt;</strong> - Contains navigation links</li>
+                        <li><strong>&lt;main&gt;</strong> - Main content area (use only one per page)</li>
+                        <li><strong>&lt;article&gt;</strong> - Self-contained content like blog posts</li>
+                        <li><strong>&lt;section&gt;</strong> - Thematic grouping of content</li>
+                        <li><strong>&lt;aside&gt;</strong> - Sidebar or supplementary content</li>
+                        <li><strong>&lt;footer&gt;</strong> - Contains copyright, links, and page information</li>
+                    </ul>
+                    <h4>Complete Page Example:</h4>
                     <pre>&lt;body&gt;
-  &lt;header&gt;...&lt;/header&gt;
-  &lt;main&gt;...&lt;/main&gt;
-  &lt;footer&gt;...&lt;/footer&gt;
+  &lt;header&gt;Logo and Navigation&lt;/header&gt;
+  &lt;main&gt;
+    &lt;article&gt;Page Content&lt;/article&gt;
+  &lt;/main&gt;
+  &lt;footer&gt;Copyright Info&lt;/footer&gt;
 &lt;/body&gt;</pre>
+                    <div class="video-tutorial">
+                        <h4>Video Tutorial</h4>
+                        <video controls width="100%" src="videos/tutorial-html.mp4"></video>
+                        <p>This walkthrough shows how semantic structure improves page readability and accessibility.</p>
+                    </div>
                     <button class="btn" onclick="completeCourse('html')">Finish HTML Course</button>
                 </div>
             </div>
@@ -702,11 +734,43 @@
                 </div>
                 <div id="css-section1" class="lesson-page">
                     <h3>Section 1: What is CSS?</h3>
-                    <p>CSS controls the visual appearance of HTML. Use selectors and properties to change colors, spacing, and layout.</p>
+                    <p>CSS (Cascading Style Sheets) is used to style HTML elements. While HTML creates the structure, CSS makes it look beautiful. CSS uses selectors to target HTML elements and properties to change their appearance.</p>
+                    <h4>CSS Basics - Three Ways to Add Styles:</h4>
+                    <ul style="margin: 10px 0; padding-left: 20px;">
+                        <li><strong>Inline CSS</strong> - Style directly in HTML tags</li>
+                        <li><strong>Internal CSS</strong> - Style in &lt;style&gt; tag in HTML head</li>
+                        <li><strong>External CSS</strong> - Link to separate .css file (best practice)</li>
+                    </ul>
+                    <h4>Common CSS Properties:</h4>
+                    <ul style="margin: 10px 0; padding-left: 20px;">
+                        <li><strong>color</strong> - Text color</li>
+                        <li><strong>background-color</strong> - Background color</li>
+                        <li><strong>font-size</strong> - Text size</li>
+                        <li><strong>padding</strong> - Space inside an element</li>
+                        <li><strong>margin</strong> - Space outside an element</li>
+                        <li><strong>border</strong> - Edge around element</li>
+                    </ul>
+                    <h4>Example CSS:</h4>
                     <pre>body {
   background-color: #f4f7ff;
   font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+h1 {
+  color: #1f3a88;
+  font-size: 32px;
+}
+
+p {
+  font-size: 16px;
 }</pre>
+                    <div class="video-tutorial">
+                        <h4>Video Tutorial</h4>
+                        <video controls width="100%" src="videos/tutorial-css.mp4"></video>
+                        <p>Learn how CSS rules shape page layout and how style rules cascade down to HTML elements.</p>
+                    </div>
                     <div class="quiz">
                         <h4>Quiz: CSS Basics</h4>
                         <p>Which property changes the background color?</p>
@@ -719,16 +783,44 @@
                         <p class="quiz-result" id="result-css"></p>
                     </div>
                     <div class="course-actions">
-                        <button id="css-next" class="btn secondary" onclick="goToCourseSection('css', 2)" disabled>Next Section</button>
+                        <button id="css-next" class="btn secondary" onclick="goToCourseSection('css', 2)" disabled>Continue</button>
                     </div>
                 </div>
                 <div id="css-section2" class="lesson-page hidden">
                     <h3>Section 2: Selectors and Styling</h3>
-                    <p>Select elements using classes (<code>.card</code>) and IDs (<code>#header</code>) and apply style rules.</p>
+                    <p>CSS selectors target specific HTML elements so you can apply styles. There are three main types of selectors: element selectors (tag names), class selectors (reusable), and ID selectors (unique).</p>
+                    <h4>Types of CSS Selectors:</h4>
+                    <ul style="margin: 10px 0; padding-left: 20px;">
+                        <li><strong>Element Selector</strong> - <code>p { color: blue; }</code> - Targets all paragraphs</li>
+                        <li><strong>Class Selector</strong> - <code>.highlight { color: yellow; }</code> - Use class attribute</li>
+                        <li><strong>ID Selector</strong> - <code>#header { background-color: navy; }</code> - Unique identifier</li>
+                        <li><strong>Group Selector</strong> - <code>h1, h2, h3 { color: green; }</code> - Multiple elements</li>
+                    </ul>
+                    <h4>CSS Box Model (Important!):</h4>
+                    <ul style="margin: 10px 0; padding-left: 20px;">
+                        <li>Content - The actual element</li>
+                        <li>Padding - Space inside the element</li>
+                        <li>Border - Line around the element</li>
+                        <li>Margin - Space outside the element</li>
+                    </ul>
+                    <h4>Example with Advanced Styling:</h4>
                     <pre>.card {
   border-radius: 16px;
   box-shadow: 0 12px 25px rgba(31, 58, 136, 0.15);
+  padding: 20px;
+  background-color: white;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 30px rgba(31, 58, 136, 0.25);
 }</pre>
+                    <div class="video-tutorial">
+                        <h4>Video Tutorial</h4>
+                        <video controls width="100%" src="videos/tutorial-css.mp4"></video>
+                        <p>See how selectors, properties, and the box model work together in a live demo.</p>
+                    </div>
                     <button class="btn" onclick="completeCourse('css')">Finish CSS Course</button>
                 </div>
             </div>
@@ -740,8 +832,30 @@
                 </div>
                 <div id="js-section1" class="lesson-page">
                     <h3>Section 1: What is JavaScript?</h3>
-                    <p>JavaScript makes web pages interactive by running code in the browser.</p>
+                    <p>JavaScript is a programming language that runs in web browsers. While HTML creates structure and CSS adds styling, JavaScript adds interactivity and dynamic behavior to web pages. You can respond to user clicks, validate forms, update content, and much more.</p>
+                    <h4>What Can JavaScript Do?</h4>
+                    <ul style="margin: 10px 0; padding-left: 20px;">
+                        <li>Respond to user interactions (clicks, typing, hovering)</li>
+                        <li>Change HTML content dynamically</li>
+                        <li>Modify CSS styles on the fly</li>
+                        <li>Validate form data before sending to server</li>
+                        <li>Create animations and effects</li>
+                        <li>Store data in the browser (localStorage)</li>
+                        <li>Make requests to servers (fetch API)</li>
+                    </ul>
+                    <h4>Where to Put JavaScript:</h4>
+                    <ul style="margin: 10px 0; padding-left: 20px;">
+                        <li>In &lt;script&gt; tags in HTML (inline)</li>
+                        <li>In separate .js files (best practice)</li>
+                        <li>In HTML attributes like onclick</li>
+                    </ul>
+                    <h4>First JavaScript Code:</h4>
                     <pre>console.log('Hello World');</pre>
+                    <div class="video-tutorial">
+                        <h4>Video Tutorial</h4>
+                        <video controls width="100%" src="videos/tutorial-js.mp4"></video>
+                        <p>Follow this demo to see how browser output works in the console.</p>
+                    </div>
                     <div class="quiz">
                         <h4>Quiz: JavaScript Basics</h4>
                         <p>What does <code>console.log</code> do?</p>
@@ -754,15 +868,43 @@
                         <p class="quiz-result" id="result-js"></p>
                     </div>
                     <div class="course-actions">
-                        <button id="js-next" class="btn secondary" onclick="goToCourseSection('js', 2)" disabled>Next Section</button>
+                        <button id="js-next" class="btn secondary" onclick="goToCourseSection('js', 2)" disabled>Continue</button>
                     </div>
                 </div>
                 <div id="js-section2" class="lesson-page hidden">
                     <h3>Section 2: Variables and Functions</h3>
-                    <p>Use <code>let</code> or <code>const</code> to store values, and define functions to reuse logic.</p>
-                    <pre>function greet(name) {
+                    <p>Variables store data, and functions organize code into reusable blocks. Variables hold information (numbers, text, true/false), and functions let you run the same code multiple times without repeating yourself.</p>
+                    <h4>Variable Declaration - Three Ways:</h4>
+                    <ul style="margin: 10px 0; padding-left: 20px;">
+                        <li><strong>var</strong> - Old way, avoid using</li>
+                        <li><strong>let</strong> - Modern, block-scoped, can be changed</li>
+                        <li><strong>const</strong> - Modern, cannot be changed (preferred for constants)</li>
+                    </ul>
+                    <h4>Data Types in JavaScript:</h4>
+                    <ul style="margin: 10px 0; padding-left: 20px;">
+                        <li><strong>String</strong> - Text: <code>'Hello'</code></li>
+                        <li><strong>Number</strong> - Integer or decimal: <code>42</code> or <code>3.14</code></li>
+                        <li><strong>Boolean</strong> - True or false: <code>true</code> or <code>false</code></li>
+                        <li><strong>Array</strong> - List of items: <code>[1, 2, 3]</code></li>
+                        <li><strong>Object</strong> - Collection of properties: <code>{name: 'John'}</code></li>
+                    </ul>
+                    <h4>Function Examples:</h4>
+                    <pre>// Simple function
+function greet(name) {
   return 'Hello ' + name;
-}</pre>
+}
+
+// Arrow function (modern)
+const add = (a, b) => a + b;
+
+// Calling functions
+console.log(greet('Alice'));
+console.log(add(5, 3));</pre>
+                    <div class="video-tutorial">
+                        <h4>Video Tutorial</h4>
+                        <video controls width="100%" src="videos/tutorial-js.mp4"></video>
+                        <p>Watch this example to learn how functions and values work together.</p>
+                    </div>
                     <button class="btn" onclick="completeCourse('js')">Finish JavaScript Course</button>
                 </div>
             </div>
@@ -774,9 +916,31 @@
                 </div>
                 <div id="python-section1" class="lesson-page">
                     <h3>Section 1: Python Basics</h3>
-                    <p>Python is a simple programming language used for web apps, data, and automation.</p>
+                    <p>Python is a beginner-friendly programming language known for its simple, readable syntax. It's used for web development, data science, artificial intelligence, automation, and more. Python emphasizes code readability, making it perfect for learning programming.</p>
+                    <h4>Why Learn Python?</h4>
+                    <ul style="margin: 10px 0; padding-left: 20px;">
+                        <li>Easy to read and write - similar to English</li>
+                        <li>Powerful libraries for different tasks</li>
+                        <li>Used by companies like Google, Netflix, Spotify</li>
+                        <li>Great for data analysis and automation</li>
+                        <li>Perfect for beginners to learn programming concepts</li>
+                    </ul>
+                    <h4>Python Basics:</h4>
+                    <ul style="margin: 10px 0; padding-left: 20px;">
+                        <li>Variables store data without needing types</li>
+                        <li>Indentation (spaces) matters for code blocks</li>
+                        <li>Comments start with # symbol</li>
+                        <li>Lists hold multiple items: [1, 2, 3]</li>
+                        <li>Dictionaries store key-value pairs: {'name': 'John'}</li>
+                    </ul>
+                    <h4>Your First Python Code:</h4>
                     <pre>name = 'Jessica'
 print('Hello', name)</pre>
+                    <div class="video-tutorial">
+                        <h4>Video Tutorial</h4>
+                        <video controls width="100%" src="videos/tutorial-python.mp4"></video>
+                        <p>See how Python code runs and prints output line by line.</p>
+                    </div>
                     <div class="quiz">
                         <h4>Quiz: Python Basics</h4>
                         <p>What symbol is used to assign a value?</p>
@@ -789,14 +953,46 @@ print('Hello', name)</pre>
                         <p class="quiz-result" id="result-python"></p>
                     </div>
                     <div class="course-actions">
-                        <button id="python-next" class="btn secondary" onclick="goToCourseSection('python', 2)" disabled>Next Section</button>
+                        <button id="python-next" class="btn secondary" onclick="goToCourseSection('python', 2)" disabled>Continue</button>
                     </div>
                 </div>
                 <div id="python-section2" class="lesson-page hidden">
-                    <h3>Section 2: Python Functions</h3>
-                    <p>Functions wrap code so you can run the same logic again and again.</p>
+                    <h3>Section 2: Python Functions and Control Flow</h3>
+                    <p>Functions let you write code once and use it many times. Control flow statements like if/else and loops help you make decisions and repeat code. These are fundamental building blocks for all programs.</p>
+                    <h4>Key Programming Concepts:</h4>
+                    <ul style="margin: 10px 0; padding-left: 20px;">
+                        <li><strong>Functions</strong> - Named blocks of code you can call</li>
+                        <li><strong>Parameters</strong> - Information passed to functions</li>
+                        <li><strong>Return</strong> - Send result back from function</li>
+                        <li><strong>If/Else</strong> - Make decisions based on conditions</li>
+                        <li><strong>For Loop</strong> - Repeat code for each item in list</li>
+                        <li><strong>While Loop</strong> - Repeat code while condition is true</li>
+                    </ul>
+                    <h4>Common Use Cases:</h4>
+                    <ul style="margin: 10px 0; padding-left: 20px;">
+                        <li>Automation - Run scripts to perform repetitive tasks</li>
+                        <li>Data Processing - Analyze and transform data</li>
+                        <li>Web Scraping - Extract data from websites</li>
+                        <li>Building Bots - Create automated assistants</li>
+                    </ul>
+                    <h4>Python Function Example:</h4>
                     <pre>def greet(name):
-  return 'Hello ' + name</pre>
+  """Function that greets a person"""
+  return 'Hello ' + name
+
+# Call the function
+print(greet('Alice'))
+
+# Function with multiple parameters
+def add(a, b):
+  return a + b
+
+print(add(5, 3))  # Output: 8</pre>
+                    <div class="video-tutorial">
+                        <h4>Video Tutorial</h4>
+                        <video controls width="100%" src="videos/tutorial-python.mp4"></video>
+                        <p>Review this tutorial to understand how functions work in Python.</p>
+                    </div>
                     <button class="btn" onclick="completeCourse('python')">Finish Python Course</button>
                 </div>
             </div>
@@ -808,8 +1004,31 @@ print('Hello', name)</pre>
                 </div>
                 <div id="sql-section1" class="lesson-page">
                     <h3>Section 1: SQL Basics</h3>
-                    <p>SQL is used to search and manage data in databases using commands such as SELECT and INSERT.</p>
+                    <p>SQL (Structured Query Language) is used to communicate with databases. Databases store large amounts of organized data. SQL lets you ask questions about that data (queries), add new data, update existing data, and delete data. Nearly every website uses SQL.</p>
+                    <h4>What Can SQL Do?</h4>
+                    <ul style="margin: 10px 0; padding-left: 20px;">
+                        <li><strong>SELECT</strong> - Retrieve data from database</li>
+                        <li><strong>INSERT</strong> - Add new records to database</li>
+                        <li><strong>UPDATE</strong> - Modify existing records</li>
+                        <li><strong>DELETE</strong> - Remove records</li>
+                        <li><strong>WHERE</strong> - Filter results by conditions</li>
+                        <li><strong>ORDER BY</strong> - Sort results</li>
+                        <li><strong>JOIN</strong> - Combine data from multiple tables</li>
+                    </ul>
+                    <h4>Database Structure:</h4>
+                    <ul style="margin: 10px 0; padding-left: 20px;">
+                        <li><strong>Database</strong> - Container for all data</li>
+                        <li><strong>Table</strong> - Like a spreadsheet with rows and columns</li>
+                        <li><strong>Row</strong> - One record (e.g., one student)</li>
+                        <li><strong>Column</strong> - One field (e.g., student name)</li>
+                    </ul>
+                    <h4>Your First SQL Query:</h4>
                     <pre>SELECT * FROM students;</pre>
+                    <div class="video-tutorial">
+                        <h4>Video Tutorial</h4>
+                        <video controls width="100%" src="videos/tutorial-sql.mp4"></video>
+                        <p>Watch this explanation to see how SQL queries retrieve data from tables.</p>
+                    </div>
                     <div class="quiz">
                         <h4>Quiz: SQL Basics</h4>
                         <p>Which command reads data from a table?</p>
@@ -822,15 +1041,47 @@ print('Hello', name)</pre>
                         <p class="quiz-result" id="result-sql"></p>
                     </div>
                     <div class="course-actions">
-                        <button id="sql-next" class="btn secondary" onclick="goToCourseSection('sql', 2)" disabled>Next Section</button>
+                        <button id="sql-next" class="btn secondary" onclick="goToCourseSection('sql', 2)" disabled>Continue</button>
                     </div>
                 </div>
                 <div id="sql-section2" class="lesson-page hidden">
-                    <h3>Section 2: Filtering Data</h3>
-                    <p>Use WHERE to narrow results and ORDER BY to sort them.</p>
-                    <pre>SELECT name FROM students
-WHERE grade &gt;= 80
-ORDER BY name;</pre>
+                    <h3>Section 2: Filtering and Sorting Data</h3>
+                    <p>As databases grow larger, you need to find specific data quickly. WHERE filters results by conditions, and ORDER BY sorts them. Together, these make powerful queries that answer real business questions.</p>
+                    <h4>Filtering with WHERE:</h4>
+                    <ul style="margin: 10px 0; padding-left: 20px;">
+                        <li><strong>=</strong> - Equal to</li>
+                        <li><strong>!=</strong> - Not equal to</li>
+                        <li><strong>&gt;</strong> - Greater than</li>
+                        <li><strong>&lt;</strong> - Less than</li>
+                        <li><strong>&gt;=</strong> - Greater than or equal</li>
+                        <li><strong>&lt;=</strong> - Less than or equal</li>
+                        <li><strong>LIKE</strong> - Pattern matching</li>
+                        <li><strong>IN</strong> - Check if in list</li>
+                    </ul>
+                    <h4>Advanced Queries:</h4>
+                    <ul style="margin: 10px 0; padding-left: 20px;">
+                        <li><strong>COUNT</strong> - Count rows</li>
+                        <li><strong>SUM</strong> - Add up values</li>
+                        <li><strong>AVG</strong> - Calculate average</li>
+                        <li><strong>MAX/MIN</strong> - Find highest/lowest values</li>
+                        <li><strong>GROUP BY</strong> - Organize results into groups</li>
+                    </ul>
+                    <h4>Complete Filtering Example:</h4>
+                    <pre>-- Find all high-performing students
+SELECT name, grade FROM students
+WHERE grade >= 80
+ORDER BY grade DESC;
+
+-- Count students by class
+SELECT class, COUNT(*) as student_count
+FROM students
+GROUP BY class
+ORDER BY student_count DESC;</pre>
+                    <div class="video-tutorial">
+                        <h4>Video Tutorial</h4>
+                        <video controls width="100%" src="videos/tutorial-sql.mp4"></video>
+                        <p>This video shows filtering, sorting, and grouping data step by step.</p>
+                    </div>
                     <button class="btn" onclick="completeCourse('sql')">Finish SQL Course</button>
                 </div>
             </div>
@@ -838,7 +1089,7 @@ ORDER BY name;</pre>
     </main>
 
     <footer>
-        <p>&copy; 2026 Smart Learning Hub. All rights reserved.</p>
+        <p>&copy; 2026 G-HUB. All rights reserved.</p>
     </footer>
 
     <script>

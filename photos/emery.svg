@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <rect width="400" height="400" rx="40" ry="40" fill="#76b2fe"/>
+  <circle cx="200" cy="140" r="80" fill="#fff"/>
+  <rect x="120" y="240" width="160" height="110" rx="30" fill="#fff"/>
+  <text x="200" y="60" font-family="Segoe UI, sans-serif" font-size="34" fill="#1464f4" text-anchor="middle">Emery</text>
+  <text x="200" y="285" font-family="Segoe UI, sans-serif" font-size="22" fill="#76b2fe" text-anchor="middle">Designer</text>
+</svg>

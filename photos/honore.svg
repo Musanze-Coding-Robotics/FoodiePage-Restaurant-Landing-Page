@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <rect width="400" height="400" rx="40" ry="40" fill="#667eea"/>
+  <circle cx="200" cy="140" r="80" fill="#f8f9fa"/>
+  <rect x="120" y="240" width="160" height="110" rx="30" fill="#f8f9fa"/>
+  <text x="200" y="60" font-family="Segoe UI, sans-serif" font-size="34" fill="#fff" text-anchor="middle">Honore</text>
+  <text x="200" y="285" font-family="Segoe UI, sans-serif" font-size="22" fill="#667eea" text-anchor="middle">Founder</text>
+</svg>

@@ -3,28 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Learning Hub</title>
+    <title>G-HUB - Genius Hub</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
         <nav>
             <div class="nav-container">
-                <h1>Smart Learning Hub</h1>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="courses.html">Courses</a></li>
-                    <li><a href="dashboard.html">Dashboard</a></li>
-                    <li><a href="#" id="login-btn">Login</a></li>
-                </ul>
+                <h1>G-HUB</h1>
+                <div class="nav-right">
+                    <input type="text" placeholder="Search tutorials..." id="search-bar">
+                    <button id="dark-mode-toggle">🌙</button>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="login.html">Login</a></li>
+                    <li><a href="signup.html" class="btn">Sign Up</a></li>
+                    </ul>
+                </div>
             </div>
         </nav>
     </header>
 
     <main>
         <section class="hero">
-            <h2>Welcome to Smart Learning Hub</h2>
-            <p>Your gateway to mastering programming skills with interactive courses and quizzes.</p>
+            <h2>Welcome to G-HUB</h2>
+            <p>Genius Hub: Your ultimate platform for mastering programming and sciences with interactive tutorials, references, and innovative learning tools.</p>
             <a href="courses.html" class="btn">Explore Courses</a>
         </section>
 
@@ -33,7 +39,7 @@
             <div class="feature-grid">
                 <div class="feature">
                     <h4>Interactive Courses</h4>
-                    <p>Learn programming with hands-on examples and step-by-step guides.</p>
+                    <p>Learn programming and science with hands-on examples and step-by-step guides.</p>
                 </div>
                 <div class="feature">
                     <h4>Progress Tracking</h4>
@@ -45,10 +51,60 @@
                 </div>
             </div>
         </section>
+
+        <section class="resources">
+            <h3>Explore Similar Learning Platforms</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>W3Schools</h4>
+                    <p>Quick web development references for HTML, CSS, and JavaScript.</p>
+                    <a href="https://www.w3schools.com" target="_blank" class="btn">Visit W3Schools</a>
+                </div>
+                <div class="resource-card">
+                    <h4>Khan Academy</h4>
+                    <p>Free science, math, and computer programming lessons with practice.</p>
+                    <a href="https://www.khanacademy.org" target="_blank" class="btn">Visit Khan Academy</a>
+                </div>
+                <div class="resource-card">
+                    <h4>MDN Web Docs</h4>
+                    <p>Comprehensive developer documentation for modern web technologies.</p>
+                    <a href="https://developer.mozilla.org" target="_blank" class="btn">Visit MDN</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="video-section">
+            <h3>Watch a Quick G-HUB Preview</h3>
+            <div class="video-card">
+                <video controls poster="images/hero.jpg" src="videos/tutorial-sample.mp4"></video>
+                <div class="video-info">
+                    <h4>Discover our platform features</h4>
+                    <p>Watch this short introduction to see how G-HUB makes learning programming and science fast, fun, and professional.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <h3>Why Learners Love G-HUB</h3>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p>"G-HUB gave me the confidence to build real websites after just a few lessons."</p>
+                    <strong>Grace</strong>
+                </div>
+                <div class="testimonial-card">
+                    <p>"The science videos are clear, well-structured, and easy to follow."</p>
+                    <strong>Mark</strong>
+                </div>
+                <div class="testimonial-card">
+                    <p>"I love the professional design and the downloadable study guides."</p>
+                    <strong>Sophia</strong>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 Smart Learning Hub. All rights reserved.</p>
+        <p>&copy; 2026 G-HUB. All rights reserved.</p>
     </footer>
 
     <script src="script.js"></script>
